@@ -1,0 +1,9 @@
+<h1>Add a Vocab or Phrase</h1>
+
+<%= form_for(@vocab) do |f| %>
+<%= f.label :word_or_phrase %><br>
+<%= f.text_field :word_or_phrase %><br>
+<%= f.label :memo %><br>
+<%= f.text_field :memo %><br>
+ 
+ <% end %>
