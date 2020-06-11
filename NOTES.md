@@ -23,7 +23,7 @@ Vocab
   -belongs to a language
   word_or_phrase
   memo
-  known?
+  known? ternary 
 
 Tag
 -
