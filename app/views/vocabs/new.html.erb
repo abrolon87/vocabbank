@@ -5,6 +5,8 @@
 <%= f.text_field :word_or_phrase %><br>
 <%= f.label :memo %><br>
 <%= f.text_field :memo %><br>
- 
+
+<%= f.hidden_field :user_id, value: current_user %> 
+
 <%= f.submit %>
  <% end %>
