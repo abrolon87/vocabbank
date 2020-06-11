@@ -6,7 +6,7 @@
 <%= f.label :memo %><br>
 <%= f.text_field :memo %><br>
 
-<%= f.hidden_field :user_id, value: current_user %> 
+<%= f.hidden_field :user_id, value: current_user.id %> 
 
 <%= f.submit %>
  <% end %>
