@@ -20,6 +20,6 @@ class VocabsController < ApplicationController
   private 
 
   def vocab_params 
-    params.require(:vocab).permit(:word_or_phrase, :memo)
+    params.require(:vocab).permit(:word_or_phrase, :memo, :language_id, :user_id, :known)
   end
 end
