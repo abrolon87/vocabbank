@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 # gives access  to methods in/from views
 # include ApplicationHelper (if you want to write these in there)
-  helper_method :current_user, :logged_in?
+  helper_method :current_user 
+  helper_method :logged_in?
 
   private 
 
