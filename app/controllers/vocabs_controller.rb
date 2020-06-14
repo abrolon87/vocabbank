@@ -6,42 +6,45 @@ class VocabsController < ApplicationController
 
   def new 
     @vocab = Vocab.new
-    
+    @vocab.build_language
   end 
   
   def create
     
     
-    #language = Language.find_or_create_by(language_name: vocab_params[:language_name])
+    
     #@vocab = Vocab.create(vocab_params)
     #@vocab.user = current_user
-    @vocab = current_user.vocabs.build(vocab_params)
+    @vocab = Vocab.create(vocab_params)
+    @vocab.user = current_user
+    @vocab.language = Language.find_or_create_by(language_name: vocab_params[:language_name]) 
     
-  
-    binding.pry
     if @vocab.save
-      
-      
-      redirect_to vocabs_path 
+      redirect_to vocab_path(@vocab)
     else   
       render :new
     end
     
   end
 
-#   def destroy
-#     @vocab = Vocab.find_by(id: params[:id])
-#     if @Vocab.user == current_user 
-#     @vocab.delete
-#     else 
+  def show 
+    redirect_if_not_logged_in
+    @vocab = Vocab.find_by_id(params[:id]) # nil if doesnt find anything ...find gives an error
+  end
 
-#    end 
-#     redirect_to user_vocabs_path(current_user)
-#  end
+  def destroy
+    @vocab = Vocab.find_by_id(params[:id])
+    if @vocab.user == current_user 
+    @vocab.delete
+    else 
+
+   end 
+    redirect_to vocabs_path(current_user)
+  end
 
   private 
 
   def vocab_params 
-    params.require(:vocab).permit(:word_or_phrase, :translation, :user_id, :language_id, language_attributes: [:language_name])
+    params.require(:vocab).permit(:word_or_phrase, :translation, language_attributes: [:language_name])
   end
 end
