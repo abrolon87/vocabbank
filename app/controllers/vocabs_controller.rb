@@ -10,11 +10,6 @@ class VocabsController < ApplicationController
   end 
   
   def create
-    
-    
-    
-    #@vocab = Vocab.create(vocab_params)
-    #@vocab.user = current_user
     @vocab = Vocab.create(vocab_params)
     @vocab.user = current_user
     @vocab.language = Language.find_or_create_by(language_name: vocab_params[:language_name]) 
