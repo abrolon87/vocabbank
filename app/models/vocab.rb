@@ -7,10 +7,5 @@ class Vocab < ApplicationRecord
   validates :translation, presence: true
 
   accepts_nested_attributes_for :language
-
-#  def language_name=(name)
-#    self.language = Language.find_or_create_by(name: name)
-#  end
-
- 
+  
 end
