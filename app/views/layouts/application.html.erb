@@ -11,6 +11,9 @@
 
   <body>
 
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
     <div>
       <% if logged_in? %>
       <%= link_to "Add a Vocab or Phrase", new_vocab_path %> |
