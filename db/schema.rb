@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_060724) do
+ActiveRecord::Schema.define(version: 2020_06_15_180235) do
 
   create_table "examples", force: :cascade do |t|
     t.string "sentence"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_06_13_060724) do
     t.string "translation"
     t.integer "language_id"
     t.integer "user_id"
-    t.boolean "known", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["language_id"], name: "index_vocabs_on_language_id"
