@@ -1,0 +1,16 @@
+<h1>Edit Details</h1>
+
+<h3>Language: <%= @vocab.language.language_name %></h3>
+<%= form_for(@vocab) do |f| %>
+
+
+<%= f.label :word_or_phrase %><br>
+<%= f.text_field :word_or_phrase %><br>
+<%= f.label :translation %><br>
+<%= f.text_field :translation %><br>
+
+<%= f.hidden_field :user_id, value: current_user.id %> 
+<%= f.hidden_field :language_id, value: @language.id if @language %>
+
+<%= f.submit %>
+<% end %>

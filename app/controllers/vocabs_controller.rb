@@ -17,9 +17,7 @@ class VocabsController < ApplicationController
       @vocab.user = current_user
       @vocab.language = params["vocab[language_attributes][language_name]"]
       #@vocab.language = Language.find_or_create_by(language_name: vocab_params[:language_name]) 
-      binding.pry
       if @vocab.save
-        
         redirect_to vocab_path(@vocab)
       else   
         render :new
