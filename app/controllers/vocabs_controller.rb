@@ -1,5 +1,6 @@
 class VocabsController < ApplicationController
-  
+  before_action :redirect_if_not_logged_in
+
   def index 
     @vocabs = current_user.vocabs.all
   end 
@@ -10,7 +11,7 @@ class VocabsController < ApplicationController
   end 
   
   def create
-    redirect_if_not_logged_in
+    #redirect_if_not_logged_in
       @vocab = Vocab.create(vocab_params)
       @vocab.user = current_user
       @vocab.language = Language.find_or_create_by(language_name: vocab_params[:language_name]) 
@@ -24,8 +25,18 @@ class VocabsController < ApplicationController
   end
 
   def show 
-    redirect_if_not_logged_in
-    @vocab = Vocab.find_by_id(params[:id]) # nil if doesnt find anything ...find gives an error
+    #redirect_if_not_logged_in
+    @vocab = Vocab.find_by(id: params[:id]) # nil if doesnt find anything ...find gives an error
+  end
+
+  def edit 
+    @vocab = Vocab.find_by(id: params[:id])
+  end
+
+  def update
+    @vocab = Vocab.find_by(id: params[:id])
+    @vocab.update(vocab_params)
+    redirect_to vocab_path(@vocab)
   end
 
   def destroy
