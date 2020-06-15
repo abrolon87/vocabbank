@@ -3,10 +3,11 @@
 <%= form_for(@vocab) do |f| %>
 
 <%= f.label "Select a language:" %>
+
 <%= f.collection_select :language_id, Language.all, :id, :language_name, include_blank: true %>
 <br>
 <p>Don't see the language you want? Add it here:
-<%= f.fields_for :language do |l|%>
+<%= f.fields_for :language, @language do |l|%>
   
   <%= l.text_field :language_name %>
   

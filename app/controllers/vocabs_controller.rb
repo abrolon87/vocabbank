@@ -7,16 +7,19 @@ class VocabsController < ApplicationController
 
   def new 
     @vocab = Vocab.new
-    @vocab.build_language
+    @language = @vocab.build_language
+
   end 
   
   def create
     #redirect_if_not_logged_in
       @vocab = Vocab.create(vocab_params)
       @vocab.user = current_user
-      @vocab.language = Language.find_or_create_by(language_name: vocab_params[:language_name]) 
-    
+      @vocab.language = params["vocab[language_attributes][language_name]"]
+      #@vocab.language = Language.find_or_create_by(language_name: vocab_params[:language_name]) 
+      binding.pry
       if @vocab.save
+        
         redirect_to vocab_path(@vocab)
       else   
         render :new
@@ -52,6 +55,6 @@ class VocabsController < ApplicationController
   private 
 
   def vocab_params 
-    params.require(:vocab).permit(:word_or_phrase, :translation, language_attributes: [:language_name])
+    params.require(:vocab).permit(:word_or_phrase, :translation, :user_id, :language_id, language_attributes: [:language_name])
   end
 end
