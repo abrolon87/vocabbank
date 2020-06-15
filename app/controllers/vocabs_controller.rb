@@ -8,14 +8,13 @@ class VocabsController < ApplicationController
   def new 
     @vocab = Vocab.new
     @language = @vocab.build_language
-
   end 
   
   def create
     #redirect_if_not_logged_in
-      @vocab = Vocab.create(vocab_params)
-      @vocab.user = current_user
-      @vocab.language = params["vocab[language_attributes][language_name]"]
+      @vocab = current_user.vocabs.create(vocab_params) #Vocab.create(vocab_params)
+      #@vocab.user = current_user
+      #@vocab.language = params["vocab[language_attributes][language_name]"]
       #@vocab.language = Language.find_or_create_by(language_name: vocab_params[:language_name]) 
       if @vocab.save
         redirect_to vocab_path(@vocab)
