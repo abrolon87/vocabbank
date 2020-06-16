@@ -3,7 +3,9 @@
 <h1><%= @vocab.word_or_phrase %></h1>
 <h3>Translation: <%= @vocab.translation %></h3>
 
-<%= link_to "Back to My Page", user_path(current_user) %>
+<p><%= link_to "Add Examples for this Vocab or Phrase", new_vocab_example %>
+
+<p><%= link_to "Back to My Page", user_path(current_user) %></p>
 <p><%= link_to "Back to Vocabs", vocabs_path %></p>
 
 
