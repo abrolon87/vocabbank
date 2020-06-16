@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  
+  
   def home
   end
   
@@ -25,5 +27,24 @@ class SessionsController < ApplicationController
   
   end
 
+  def github_create
+    @user = User.from_omniauth(auth)
+    session[:user_id] = @user.id
+    #flash[:success] = "Welcome, #{@user.username}!"
+    redirect_to user_path(@user)
+  end
+
+  #   @user = User.find_or_create_by(email: auth["info"]["email"])
+  #   binding.pry
+  #   if !@user.password_digest #no password means no name
+  #       @user.password_digest = SecureRandom.hex 
+  #       @user.name = auth["info"]["name"]
+    
+
+  private 
+
+  def auth
+    request.env['omniauth.auth']
+  end
 
 end
