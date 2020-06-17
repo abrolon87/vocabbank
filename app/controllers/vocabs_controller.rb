@@ -26,7 +26,12 @@ class VocabsController < ApplicationController
 
   def show 
     #redirect_if_not_logged_in
-    @vocab = Vocab.find(id: params[:id]) # find_by returnsnil if doesnt find anything ...find gives an error
+    
+    @vocab = Vocab.find(params[:id]) # find_by returnsnil if doesnt find anything ...find gives an error
+    # @example = Example.new
+    # @example.vocab_id = @vocab.id 
+    #binding.pry vocab_id not nil here in pry
+    
   end
 
   def edit 

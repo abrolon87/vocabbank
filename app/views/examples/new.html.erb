@@ -1,7 +1,9 @@
+
+
 <%= form_for @example do |f| %>
-   <%= f.hidden_field :vocab_id, value: @vocab.id %>
+   <%= f.hidden_field :vocab_id, value: @example.vocab_id %>
   <%= f.label :sentence %>
   <%= f.text_field :sentence %>
-   
+
   <%= f.submit "Add Example" %>
 <% end %>
