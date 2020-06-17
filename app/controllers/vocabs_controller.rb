@@ -26,26 +26,22 @@ class VocabsController < ApplicationController
 
   def show 
     #redirect_if_not_logged_in
-    @vocab = Vocab.find_by(id: params[:id]) # nil if doesnt find anything ...find gives an error
+    @vocab = Vocab.find(id: params[:id]) # find_by returnsnil if doesnt find anything ...find gives an error
   end
 
   def edit 
-    @vocab = Vocab.find_by(id: params[:id])
+    @vocab = Vocab.find(params[:id])
   end
 
   def update
-    @vocab = Vocab.find_by(id: params[:id])
+    @vocab = Vocab.find(params[:id])
     @vocab.update(vocab_params)
     redirect_to vocab_path(@vocab)
   end
 
   def destroy
     @vocab = Vocab.find_by_id(params[:id])
-    if @vocab.user == current_user 
-    @vocab.delete
-    else 
-
-   end 
+    @vocab.delete if @vocab.user == current_user 
     redirect_to vocabs_path(current_user)
   end
 
