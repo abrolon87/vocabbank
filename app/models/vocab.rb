@@ -1,7 +1,7 @@
 class Vocab < ApplicationRecord
   belongs_to :user
   belongs_to :language
-  has_many :examples
+  has_many :examples, dependent: :delete_all
   
   validates :word_or_phrase, presence: true 
   validates :translation, presence: true
