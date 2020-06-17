@@ -11,7 +11,7 @@ class ExamplesController < ApplicationController
   
 
   def create
-    binding.pry
+    
     @example = Example.new(example_params)
   
 
@@ -19,8 +19,7 @@ class ExamplesController < ApplicationController
 
     
     if @example.save
-      binding.pry
-      #redirect_to vocab_path(@example.vocab)
+      redirect_to example_path(@example)
     else  
       redirect_to '/'
     end
@@ -28,9 +27,9 @@ class ExamplesController < ApplicationController
    
     
 
-  # def show 
-  #   @example = Example.find_by(id: params[:id])
-  # end
+  def show 
+    @example = Example.find_by(id: params[:id])
+  end
 
 
   private 
