@@ -1,27 +1,21 @@
 <h1>Add a Vocab or Phrase</h1>
 
-<%= form_for(@vocab) do |f| %>
+<%= form_for @vocab do |f| %>
+<%= f.hidden_field :user_id, value: current_user.id %> 
+<%= f.hidden_field :language_id, value: @language.id if @language %>
 
 <%= f.label "Select a language:" %>
-
 <%= f.collection_select :language_id, Language.all, :id, :language_name, include_blank: true %>
 <br>
 <p>Don't see the language you want? Add it here:
 <%= f.fields_for :language, @language do |l|%>
-  
   <%= l.text_field :language_name %>
-  
 <% end %>
-
- 
 </p>
 <%= f.label :word_or_phrase %><br>
 <%= f.text_field :word_or_phrase %><br>
 <%= f.label :translation %><br>
 <%= f.text_field :translation %><br>
 
-<%= f.hidden_field :user_id, value: current_user.id %> 
-<%= f.hidden_field :language_id, value: @language.id if @language %>
-
-<%= f.submit %>
+<%= f.submit "Add Vocab" %>
 <% end %>
