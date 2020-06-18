@@ -2,7 +2,7 @@ class VocabsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def index 
-    @vocabs = current_user.vocabs.all
+    @vocabs = current_user.vocabs.all.sort_alphabetically
   end 
 
   def new 
