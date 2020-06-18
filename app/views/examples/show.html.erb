@@ -1,1 +1,9 @@
-<h1>Vocab Show</h1>
+<h1>Example of '<%= "#{@example.vocab.word_or_phrase}"%>' in <%="#{@example.vocab.language.language_name}"%> </h1>
+
+
+    <h3><%= @example.sentence %></h3>
+ 
+
+ 
+<%= link_to "Delete this Example", @example, method: :delete %>
+ <p><%= link_to "Back to Vocab", vocab_path(@example.vocab) %></p>
