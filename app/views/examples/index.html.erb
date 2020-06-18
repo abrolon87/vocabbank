@@ -1,0 +1,8 @@
+<h1>Example Index</h1>
+
+<% @examples.each do |e| %>
+  <ul><%= link_to e.sentence, example_path(e) %></ul>
+ <% end %>
+
+
+ <p><%= link_to "Add a New Example", new_vocab_example_path(@vocab) %>
