@@ -3,13 +3,14 @@
 <h1><%= @vocab.word_or_phrase %></h1>
 <h3>Translation: <%= @vocab.translation %></h3>
 
-<p><%= link_to "See Examples with this Vocab or Phrase", vocab_examples_path(@vocab) %>
-
-<p><%= link_to "Back to My Page", user_path(current_user) %></p>
-<p><%= link_to "Back to Vocabs", vocabs_path %></p>
-
+<p><%= link_to "See Examples with this Vocab or Phrase", vocab_examples_path(@vocab) %></p>
 
 <% if @vocab.user == current_user %>
-<%= link_to "Edit Vocab", edit_vocab_path(@vocab) %>
-<%= link_to "Delete this Vocab", @vocab, method: :delete %>
+<p><%= link_to "Edit Vocab", edit_vocab_path(@vocab) %></p>
+<p><%= link_to "Delete this Vocab", @vocab, method: :delete %></p><br>
 <% end %>
+
+
+<p><%= link_to "<< Back to Vocabs", vocabs_path %></p>
+
+
