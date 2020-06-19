@@ -1,9 +1,9 @@
-<h1>Example Index</h1>
+<h1>Example Sentences for "<%= @vocab.word_or_phrase %>" in <%= @vocab.language.language_name %></h1>
 
 <% @examples.each do |e| %>
   <ul><%= link_to e.sentence, example_path(e) %></ul>
  <% end %>
 
 
- <p><%= link_to "Add a New Example", new_vocab_example_path(@vocab) %>
+ <p><%= link_to "Add a New Example", new_vocab_example_path(@vocab) %><br>
  <p><%= link_to "<< Back to Vocab", vocab_path(@vocab) %>
