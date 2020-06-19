@@ -1,4 +1,12 @@
 
+<% if @example.errors.any? %>
+  <ul>
+    <% @example.errors.full_messages.each do |message| %>
+     
+      <li><%= message %></li>
+    <%end%>
+</ul>
+<% end %>
 
 <%= form_for @example do |f| %>
    <%= f.hidden_field :vocab_id, value: @example.vocab_id %>
