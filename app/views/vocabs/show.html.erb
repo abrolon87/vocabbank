@@ -7,7 +7,7 @@
 
 <% if @vocab.user == current_user %>
 <p><%= link_to "Edit Vocab", edit_vocab_path(@vocab) %></p>
-<p><%= link_to "Delete this Vocab", @vocab, method: :delete %></p><br>
+<p><%= link_to "Delete this Vocab", @vocab, method: :delete, data: { confirm: "Are you sure?" } %></p><br>
 <% end %>
 
 
