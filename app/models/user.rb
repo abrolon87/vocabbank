@@ -5,6 +5,7 @@ class User < ApplicationRecord
   
   validates  :username, presence: true, uniqueness: true
   validates :name, :password_digest, presence: true
+  validates :email, uniqueness: true
 
   def self.from_omniauth(auth)
     find_or_create_by(username: auth.info.nickname) do |user|
