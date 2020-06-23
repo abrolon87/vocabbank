@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index 
-    @users = User.all
+    redirect_to '/signup'
   end 
 
   def new 
@@ -19,8 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show 
-    #edirect_if_not_logged_in
-    @user = User.find_by_id(params[:id]) # nil if doesnt find anything ...find gives an error
+    @user = User.find_by_id(params[:id]) 
     redirect_to '/' if !@user
   end 
 

@@ -6,11 +6,6 @@ class SessionsController < ApplicationController
   def login 
   end
 
-  def destroy 
-    session.clear
-    redirect_to root_path
-  end
-  
   def create 
     user = User.find_by(username: params[:user][:username])
     
@@ -36,7 +31,10 @@ class SessionsController < ApplicationController
   #   if !@user.password_digest #no password means no name
   #       @user.password_digest = SecureRandom.hex 
   #       @user.name = auth["info"]["name"]
-    
+  def destroy 
+    session.clear
+    redirect_to root_path
+  end
 
   private 
 
