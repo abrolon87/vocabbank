@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to VocabBank! 
 
-Things you may want to cover:
+* Fork or clone this repo 
 
-* Ruby version
+* Navigate into the project directory
 
-* System dependencies
+* Run 'bundle install' to install the dependencies 
 
-* Configuration
+* Run 'db:migrate' to run the migrations and create the database
 
-* Database creation
+* Start the server by running 'rails s' in the console 
 
-* Database initialization
+* Go to 'localhost:3000' 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You may create an account on VocabBank or signin using GitHub
