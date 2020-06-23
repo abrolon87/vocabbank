@@ -20,25 +20,21 @@ class VocabsController < ApplicationController
   end
 
   def show 
-    #find_vocab
-    @vocab = Vocab.find(params[:id]) 
+    find_vocab
   end
 
   def edit 
-    #find_vocab
-    @vocab = Vocab.find(params[:id])
+    find_vocab
   end
 
   def update
-    #find_vocab
-    @vocab = Vocab.find(params[:id])
+    find_vocab
     @vocab.update(vocab_params)
     redirect_to vocab_path(@vocab)
   end
 
   def destroy
-    #find_vocab
-    @vocab = Vocab.find_by_id(params[:id])
+    find_vocab
     @vocab.delete if @vocab.user == current_user 
     redirect_to vocabs_path(current_user)
   end
@@ -48,4 +44,5 @@ class VocabsController < ApplicationController
   def vocab_params 
     params.require(:vocab).permit(:word_or_phrase, :translation, :user_id, :language_id, language_attributes: [:language_name])
   end
+  
 end
