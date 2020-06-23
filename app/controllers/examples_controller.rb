@@ -1,7 +1,6 @@
 class ExamplesController < ApplicationController
-  
+  before_action :redirect_if_not_logged_in
   before_action :get_vocab, only: [:index]
-  
   def index
     @examples = @vocab.examples
   end
@@ -26,7 +25,6 @@ class ExamplesController < ApplicationController
   end
 
   def destroy
-    #@vocab = Vocab.find(params[:vocab_id])
     @example = Example.find(params[:id])
     @example.delete 
     redirect_to vocab_examples_path(@example.vocab_id)
@@ -40,8 +38,7 @@ class ExamplesController < ApplicationController
 
   def get_vocab
     @vocab = Vocab.find(params[:vocab_id])
-  end
-
+  end 
 end
 
 
