@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :languages, through: :vocabs
   
   validates  :username, presence: true, uniqueness: true
-  validates :name, :password_digest, presence: true
+  validates :name, presence: true
   validates :email, uniqueness: true
 
   def self.from_omniauth(auth)
