@@ -1,5 +1,9 @@
 <h1>All Vocabs and Phrases</h1>
-
+<%= form_tag("/vocabs", method: "get") do %>
+  <%= label_tag(:q, "Search for a vocab:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 <% @vocabs.each do |vocab| %>
 <ul>  <%= link_to vocab.word_or_phrase, vocab_path(vocab)  %> </ul>
  <% end %>
