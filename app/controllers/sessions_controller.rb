@@ -26,11 +26,6 @@ class SessionsController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  #   @user = User.find_or_create_by(email: auth["info"]["email"])
-  #   binding.pry
-  #   if !@user.password_digest #no password means no name
-  #       @user.password_digest = SecureRandom.hex 
-  #       @user.name = auth["info"]["name"]
   def destroy 
     session.clear
     redirect_to root_path
