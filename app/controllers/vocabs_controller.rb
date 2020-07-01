@@ -2,7 +2,14 @@ class VocabsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def index 
-    @vocabs = current_user.vocabs.all.sort_alphabetically
+    # is there a query param?
+      #if yes, @vocabs = only vocab of that language query
+    #else @vocabs = everything
+    if params[:q]
+      @vocabs = Vocab.all.search(params[:q])
+    else     
+      @vocabs = current_user.vocabs.all.sort_alphabetically
+    end
   end 
 
   def new 
