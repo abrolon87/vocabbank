@@ -13,5 +13,9 @@ class Vocab < ApplicationRecord
   # def language_attributes=(attr_hash)
   #   self.build_language(attr_hash)
   # end
+
+  def self.search(query)
+    where('word_or_phrase LIKE ?', "%#{query}%")
+  end
   
 end
