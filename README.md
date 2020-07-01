@@ -14,4 +14,4 @@ Welcome to VocabBank!
 
 * Go to 'localhost:3000' 
 
-You may create an account on VocabBank or signin using GitHub
+You may create an account on VocabBank or signin using GitHub  
