@@ -6,37 +6,38 @@ An app for saving vocabulary or phrases and their translations or notes about th
 Models:
 
 User
-  -has many vocabs
-  -has many languages through vocabs
-  
-  name
-  username
-  email
-  password_digest
-  
-Language
-  -has many vocabs
-  -has many users through vocabs
+-has many vocabs
+-has many languages through vocabs
 
-  language_name
+name
+username
+email
+password_digest
+
+Language
+-has many vocabs
+-has many users through vocabs
+
+language_name
 
 Vocab
-  -belongs to a user
-  -belongs to a language
-  -has many examples
-  word_or_phrase
-  translation
-  
+-belongs to a user
+-belongs to a language
+-has many examples
+word_or_phrase
+translation
 
 Example
+
 - belongs to a vocab
-sentence
+  sentence
 
   # Specifications for the Rails Assessment
 
 Specs:
+
 - [x] Using Ruby on Rails for the project
-- [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
+- [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes)
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
@@ -52,6 +53,7 @@ Specs:
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
+
 - [ ] The application is pretty DRY
 - [x] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
@@ -62,10 +64,10 @@ Example.distinct.pluck(:sentence).uniq
 
 { order language_name: :sort}
 
-<%= vocab.language.language_name %> 
-
+<%= vocab.language.language_name %>
 
 <% if @vocab.errors.any? %>
+
   <ul>
     <% @vocab.errors.full_messages.each do |message| %>
      
