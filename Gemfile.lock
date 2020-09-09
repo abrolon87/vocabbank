@@ -129,6 +129,7 @@ GEM
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
+    pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   listen (~> 3.2)
   omniauth
   omniauth-github
+  pg
   pry
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.1)
@@ -245,7 +247,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
+  sqlite3
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
