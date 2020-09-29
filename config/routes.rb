@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   
   #logout 
   delete '/logout' => 'sessions#destroy'
-
-  match '/auth/github/callback', to: 'sessions#github_create', via: [:get, :post]
+  
+  match 'http://vocabbank.herokuapp.com/auth/github/callback', to: 'sessions#github_create', via: [:get, :post]
 
   resources :users
   resources :languages
