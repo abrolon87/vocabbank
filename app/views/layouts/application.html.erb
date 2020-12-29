@@ -23,7 +23,7 @@
       <% else %> 
        <%= link_to "Sign Up", signup_path %> |
        <%= link_to "Log In", login_path %> |
-       <%= link_to 'Sign in with Github', '/auth/github' %>
+       <%= link_to 'Sign in with Github', '/auth/github', method: :post %>
       <% end %>
     </div>
     <%= yield %>
