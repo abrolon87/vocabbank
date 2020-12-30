@@ -12,5 +12,5 @@
 <%= f.hidden_field :user_id, value: current_user.id %> 
 <%= f.hidden_field :language_id, value: @language.id if @language %>
 
-<%= f.submit "Edit Vocab"%>
+<%= f.submit "Edit Vocab", :class => 'btn btn-warning btn-sm'%>
 <% end %>
