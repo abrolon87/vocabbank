@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   
   match 'auth/github/callback' => 'sessions#github_create', via: [:get, :post]
   #get 'auth/github/callback' => 'sessions#github_create'
-
+  
+  match 'auth/google_oauth2/callback' => 'sessions#github_create', via: [:get, :post] 
   resources :users
   resources :languages
   resources :vocabs
