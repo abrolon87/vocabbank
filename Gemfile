@@ -26,7 +26,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
-
+gem 'omniauth-google-oauth2'
 # gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
