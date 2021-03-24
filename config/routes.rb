@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
   
-  match '/auth/github/callback', to: 'sessions#github_create', via: [:get, :post]
+  match 'auth/:provider/callback', to: 'sessions#github_create', via: [:get, :post]
   
   resources :users
   resources :languages
